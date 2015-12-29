@@ -29,21 +29,23 @@ app.get('/test', function (req, res) {
 });
 
 app.post('/test', function (req, res) {
-  var phoneNumber = req.body.phoneNumbers[0].value.replace(/[^0-9]/g, '');
+  debugger;
+  console.log("her's the req" + req);
+   var phoneNumber = req.body.phoneNumber.replace(/[^0-9]/g, '');
   console.log("about to send to : " + phoneNumber);
   console.log(" this is request body: " + req.body);  
   res.json(req.body.data);
 
   client.sendMessage({
     //strip out everything except for numbers
-    to:'+1' + req.body.phoneNumbers[0].value.replace(/[^0-9.]/g, ""), // Any number Twilio can deliver to
+    to:'+1' + phoneNumber, // Any number Twilio can deliver to
     from: '+16172064311', // A number you bought from Twilio and can use for outbound communication
     body: "I'll only send you 100-200 messages a day about my cats?" // body of the SMS message
 
 }, function(err, responseData) { //this function is executed when a response is received from Twilio
 
     if (!err) { // "err" is an error received during the request, if any
-
+        
         // "responseData" is a JavaScript object containing data received from Twilio.
         // A sample response from sending an SMS message is here (click "JSON" to see how the data appears in JavaScript):
         // http://www.twilio.com/docs/api/rest/sending-sms#example-1
