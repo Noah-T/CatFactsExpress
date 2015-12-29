@@ -1,13 +1,5 @@
-var http = require('http');
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello World\n');
-}).listen(3000, '127.0.0.1');
-console.log('Server running at http://127.0.0.1:3000/');
-
 
 var express = require('express');
-
 
 var app = express();
 var bodyParser = require('body-parser');
@@ -63,6 +55,13 @@ app.post('/test', function (req, res) {
 });
   // res.json(req.body);
   // console.log("request body: " + req.body);
+});
+
+var server = app.listen(3000, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('Example app listening at http://%s:%s', host, port);
 });
 
 
