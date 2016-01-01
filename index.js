@@ -1,3 +1,24 @@
+var catFacts = [
+'A cat has been mayor of Talkeetna, Alaska, for 15 years. His name is Stubbs.',
+'Cats are the most popular pet in the United States: There are 88 million pet cats and 74 million dogs.',
+'There are cats who have survived falls from over 32 stories (320 meters) onto concrete.',
+'Cats sleep 70% of their lives.',
+'Cats have over 20 muscles that control their ears.',
+'Wikipedia has a recording of a cat meowing because why not?',
+'The world’s largest cat measured 48.5 inches long.',
+'The world’s richest cat is worth $13 million after his human passed away and left her fortune to him.',
+'The oldest cat video on YouTube dates back to 1894 (when it was made, not when it was uploaded, duh).',
+'Female cats are typically right-pawed while male cats are typically left-pawed.',
+'A cat’s brain is 90% similar to a human’s — more similar than to a dog’s.'
+]
+
+
+
+
+
+
+
+
 
 var express = require('express');
 
@@ -40,7 +61,7 @@ app.post('/test', function (req, res) {
     //strip out everything except for numbers
     to:'+1' + phoneNumber, // Any number Twilio can deliver to
     from: '+16172064311', // A number you bought from Twilio and can use for outbound communication
-    body: "I'll only send you 100-200 messages a day about my cats?" // body of the SMS message
+    body: catFacts[randomInt(0,catFacts.length)] // body of the SMS message
 
 }, function(err, responseData) { //this function is executed when a response is received from Twilio
 
