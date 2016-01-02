@@ -10,7 +10,11 @@ var catFacts = [
 'The oldest cat video on YouTube dates back to 1894 (when it was made, not when it was uploaded, duh).',
 'Female cats are typically right-pawed while male cats are typically left-pawed.',
 'A cat’s brain is 90% similar to a human’s — more similar than to a dog’s.'
-]
+];
+
+function randomInt (low, high) {
+    return Math.floor(Math.random() * (high - low) + low);
+}
 
 
 
